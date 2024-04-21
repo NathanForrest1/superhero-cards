@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Superhero Cards</title>
+  <style>
+    .card {
+      border: 2px solid;
+      border-color: crimson;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      height: 250px;
+      background-color:dodgerblue;
+    }
+  </style>
+</head>
+<body>
+  <div id="superheroCards"></div>
+
+  <script>
+    const avengers = [
+      {
+        "name": "Iron Man",
+        "realName": "Tony Stark",
+        "age": 48,
+        "primaryPower": "Genius-level intellect" 
+      }, 
+      { 
+        "name": "Captain America",
+        "realName": "Steve Rogers", 
+        "age": 100, 
+        "primaryPower": "Super Strength" 
+      }, 
+      { 
+        "name": "Thor Odinson", 
+        "age": 1500, 
+        "primaryPower": "Lightning" 
+      }, 
+      { 
+        "name": "Hulk",
+        "realName": "Bruce Banner",
+        "age": 49, 
+        "primaryPower": "Super Strength" 
+      }, 
+      { 
+        "name": "Black Widow",
+        "realName": "Natasha Romanoff",
+        "age": 34, 
+        "primaryPower": "Expert spy" 
+      }, 
+      { 
+        "name": "Hawkeye",
+        "realName": "Clint Barton", 
+        "age": 35, 
+        "primaryPower": "Master archer"
+      }
+    ];
+
+    const superheroCardsContainer = document.getElementById('superheroCards');
+
+    for (let i = 0; i < avengers.length; i++) {
+      const superhero = avengers[i];
+
+      // Creating a div element for each superhero card
+      const card = document.createElement('div');
+      card.classList.add('card');
+
+      // Adding superhero details to the card
+      let cardContent = `<h2>${superhero.name}</h2>`;
+      if (superhero.realName) {
+        cardContent += `<p><strong>Real Name:</strong> ${superhero.realName}</p>`;
+      }
+      if (superhero.primaryPower === "Super Strength") {
+        cardContent += `<p><strong>Primary Power:</strong> ${superhero.primaryPower}</p>`;
+      }
+      if (superhero.age >= 50) {
+        cardContent += `<p><strong>Age:</strong> ${superhero.age}</p>`;
+      }
+
+      card.innerHTML = cardContent;
+      superheroCardsContainer.appendChild(card);
+    }
+  </script>
+</body>
+</html>
